@@ -1,4 +1,21 @@
-/* Add your CSS here */
+/* Add space around the whole page */
+body {
+  margin: 0;
+}
+
+/* Limit the width of the header content */
+header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Limit and center the timeline content */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
 /* Places navigation links in a row */
 nav {
