@@ -7,6 +7,10 @@
   --line: #cdd9e0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* Set the page's basic colors, spacing, and font. */
 body {
   background: #f4f7f8;
@@ -129,15 +133,19 @@ main {
   gap: 20px;
   overflow-x: auto;
   padding: 42px 0 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
 }
 
 .milestone-card {
   background: #ffffff;
   border: 1px solid var(--line);
-  flex: 0 0 205px;
+  flex: 0 0 240px;
   min-height: 330px;
   overflow: hidden;
   position: relative;
+  scroll-snap-align: start;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -261,7 +269,9 @@ main {
     border-left: 2px solid var(--line);
     border-top: 0;
     display: block;
+    overflow-x: visible;
     padding: 0 0 0 26px;
+    scroll-snap-type: none;
   }
 
   .milestone-card {
