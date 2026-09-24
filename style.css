@@ -18,14 +18,18 @@ body {
 
 /* Use a strong blue hero to make the Intel identity clear right away. */
 .hero {
-  background: var(--deep-blue);
+  background: linear-gradient(120deg, #002f5f 0%, var(--deep-blue) 55%, #0068ae 100%);
   color: #ffffff;
+  overflow: hidden;
   padding: 32px max(28px, calc((100% - 1100px) / 2));
+  position: relative;
 }
 
 .hero-content {
   max-width: 760px;
   padding: 44px 0 52px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero img {
@@ -65,9 +69,23 @@ h1 {
   max-width: 680px;
 }
 
+.hero::after {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  content: "";
+  height: 420px;
+  position: absolute;
+  right: -130px;
+  top: -210px;
+  width: 420px;
+}
+
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 28px;
+  position: relative;
+  z-index: 1;
 }
 
 nav a {
@@ -118,7 +136,15 @@ main {
   border: 1px solid var(--line);
   flex: 0 0 205px;
   min-height: 330px;
+  overflow: hidden;
   position: relative;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.milestone-card:hover,
+.milestone-card:focus-within {
+  box-shadow: 0 14px 30px rgba(0, 60, 113, 0.16);
+  transform: translateY(-8px);
 }
 
 .milestone-card::before {
@@ -139,7 +165,13 @@ main {
   display: block;
   height: 145px;
   object-fit: cover;
+  transition: transform 0.3s ease;
   width: 100%;
+}
+
+.milestone-card:hover img,
+.milestone-card:focus-within img {
+  transform: scale(1.06);
 }
 
 .milestone-content {
@@ -170,7 +202,8 @@ main {
   position: absolute;
   right: 0;
   transform: translateY(12px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
 }
 
 .milestone-details p {
@@ -208,6 +241,7 @@ main {
 
   h1 {
     font-size: 40px;
+    overflow-wrap: anywhere;
   }
 
   .hero-description {
@@ -233,6 +267,7 @@ main {
   .milestone-card {
     margin-bottom: 24px;
     min-height: 0;
+    width: 100%;
   }
 
   .milestone-card::before {
@@ -255,5 +290,29 @@ main {
   .goals-section {
     margin-top: 48px;
     padding: 26px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero img {
+    max-width: calc(100% - 24px);
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  main {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }
