@@ -1,1 +1,13 @@
 /* Add your CSS here */
+
+/* Places navigation links in a row */
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Styles the navigation links */
+nav a {
+  color: white;
+  text-decoration: none;
+}
