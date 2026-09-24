@@ -1,163 +1,259 @@
+:root {
+  --intel-blue: #0071c5;
+  --deep-blue: #003c71;
+  --ink: #172b3a;
+  --muted: #60717d;
+  --pale-blue: #eaf6fb;
+  --line: #cdd9e0;
+}
+
 /* Set the page's basic colors, spacing, and font. */
 body {
-  background: #f5f7f8;
-  color: #1d2a32;
+  background: #f4f7f8;
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
   line-height: 1.6;
+  margin: 0;
 }
 
-header {
+/* Use a strong blue hero to make the Intel identity clear right away. */
+.hero {
+  background: var(--deep-blue);
+  color: #ffffff;
+  padding: 32px max(28px, calc((100% - 1100px) / 2));
+}
+
+.hero-content {
+  max-width: 760px;
+  padding: 44px 0 52px;
+}
+
+.hero img {
   background: #ffffff;
-  border-bottom: 1px solid #dce3e7;
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 36px 28px 28px;
-}
-
-header img {
-  height: 24px;
+  height: 26px;
+  padding: 8px 12px;
   width: auto;
 }
 
-h1,
-h2,
-h3,
-p {
+.eyebrow {
+  color: var(--intel-blue);
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #8ed7ff;
+  margin-top: 44px;
+}
+
+h1, h2, h3, p {
   margin-top: 0;
 }
 
 h1 {
-  font-size: 42px;
+  font-size: 58px;
   line-height: 1.15;
   margin-bottom: 12px;
-  margin-top: 32px;
 }
 
-header p {
-  color: #53636c;
-  max-width: 580px;
+.hero-description {
+  color: #d6e8f3;
+  font-size: 20px;
+  max-width: 680px;
 }
 
 nav {
   display: flex;
-  gap: 24px;
-  margin-top: 24px;
+  gap: 28px;
 }
 
-nav a,
-.read-more,
-.more-articles a {
-  color: #0071c5;
+nav a {
+  border-bottom: 2px solid transparent;
+  color: #ffffff;
   font-weight: bold;
   text-decoration: none;
 }
 
-nav a:hover,
-.read-more:hover,
-.more-articles a:hover {
-  text-decoration: underline;
+nav a:hover {
+  border-color: #8ed7ff;
 }
 
 main {
-  max-width: 960px;
   margin: 0 auto;
-  padding: 52px 28px;
+  max-width: 1100px;
+  padding: 72px 28px;
 }
 
-.articles h2,
-.more-articles h2 {
-  font-size: 14px;
-  letter-spacing: 1px;
-  margin-bottom: 18px;
-  text-transform: uppercase;
+.section-heading {
+  margin-bottom: 36px;
+  max-width: 640px;
 }
 
-.featured-article {
-  background: #e5f3f8;
-  border-left: 5px solid #0071c5;
-  margin-bottom: 48px;
-  padding: 32px;
-}
-
-.featured-article h3 {
-  font-size: 30px;
+.section-heading h2,
+.goals-section h2 {
+  font-size: 38px;
   line-height: 1.2;
-  max-width: 700px;
+  margin-bottom: 12px;
 }
 
-.article-label {
-  color: #0071c5;
-  font-size: 13px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.section-heading > p:last-child,
+.goals-section > p:last-child {
+  color: var(--muted);
 }
 
-.metadata {
-  color: #60717a;
+/* The timeline scrolls horizontally on larger screens. */
+.timeline {
+  border-top: 2px solid var(--line);
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 24px;
-  list-style: none;
-  margin: 0 0 18px;
-  padding: 0;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 42px 0 18px;
 }
 
-.metadata li {
-  font-size: 14px;
-}
-
-.regular-articles {
-  display: flex;
-  gap: 24px;
-}
-
-.article-card {
+.milestone-card {
   background: #ffffff;
-  border: 1px solid #dce3e7;
-  flex: 1;
-  padding: 24px;
+  border: 1px solid var(--line);
+  flex: 0 0 205px;
+  min-height: 330px;
+  position: relative;
 }
 
-.article-card h3 {
-  font-size: 22px;
-  line-height: 1.3;
+.milestone-card::before {
+  background: var(--intel-blue);
+  border: 5px solid #f4f7f8;
+  border-radius: 50%;
+  content: "";
+  height: 14px;
+  left: 50%;
+  position: absolute;
+  top: -53px;
+  transform: translateX(-50%);
+  width: 14px;
+  z-index: 1;
 }
 
-.article-card p,
-.featured-article p:not(.article-label) {
-  color: #53636c;
-  margin-bottom: 24px;
+.milestone-card img {
+  display: block;
+  height: 145px;
+  object-fit: cover;
+  width: 100%;
 }
 
-.more-articles {
-  border-top: 1px solid #dce3e7;
-  margin-top: 52px;
-  padding-top: 32px;
+.milestone-content {
+  padding: 20px;
 }
 
-.more-articles ul {
-  list-style: none;
+.milestone-year {
+  color: var(--intel-blue);
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.milestone-content h3 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+/* Details appear when the user hovers or focuses a milestone. */
+.milestone-details {
+  background: var(--deep-blue);
+  bottom: 0;
+  color: #ffffff;
+  left: 0;
+  opacity: 0;
+  padding: 18px 20px;
+  position: absolute;
+  right: 0;
+  transform: translateY(12px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.milestone-details p {
+  font-size: 14px;
   margin: 0;
-  padding: 0;
 }
 
-.more-articles li {
-  border-bottom: 1px solid #dce3e7;
-  padding: 12px 0;
+.milestone-card:hover .milestone-details,
+.milestone-card:focus-within .milestone-details {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.goals-section {
+  background: var(--pale-blue);
+  border-left: 5px solid var(--intel-blue);
+  margin-top: 72px;
+  max-width: 700px;
+  padding: 34px;
+}
+
+.goals-section .eyebrow {
+  margin-bottom: 10px;
 }
 
 @media (max-width: 650px) {
+  .hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-content {
+    padding: 28px 0 36px;
+  }
+
   h1 {
-    font-size: 34px;
+    font-size: 40px;
   }
 
-  .regular-articles {
+  .hero-description {
+    font-size: 17px;
+  }
+
+  main {
+    padding: 48px 20px;
+  }
+
+  .section-heading h2,
+  .goals-section h2 {
+    font-size: 30px;
+  }
+
+  .timeline {
+    border-left: 2px solid var(--line);
+    border-top: 0;
     display: block;
+    padding: 0 0 0 26px;
   }
 
-  .article-card + .article-card {
-    margin-top: 20px;
+  .milestone-card {
+    margin-bottom: 24px;
+    min-height: 0;
+  }
+
+  .milestone-card::before {
+    left: -37px;
+    top: 30px;
+    transform: none;
+  }
+
+  .milestone-card img {
+    height: 170px;
+  }
+
+  /* Phones do not have hover, so milestone descriptions stay readable. */
+  .milestone-details {
+    opacity: 1;
+    position: static;
+    transform: none;
+  }
+
+  .goals-section {
+    margin-top: 48px;
+    padding: 26px;
   }
 }
